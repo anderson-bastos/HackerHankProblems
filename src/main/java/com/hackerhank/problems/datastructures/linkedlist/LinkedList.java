@@ -21,17 +21,17 @@ public class LinkedList {
 	 */
 	public static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
 		if(head == null)
-			return new SinglyLinkedListNode(data);
-		findAndInsertNodeOnTail(head, data);		
-		return head;
-	}
-
-	private static void findAndInsertNodeOnTail(SinglyLinkedListNode head, int data) {
-		SinglyLinkedListNode current = head;
-		while(current.next != null) {			
-			current = current.next;
-		}		
-		current.next = new SinglyLinkedListNode(data);
+            return new SinglyLinkedListNode(data);
+        
+        SinglyLinkedListNode previus = null;
+        SinglyLinkedListNode current = head;
+        
+        while(current != null) {
+            previus = current;
+            current = current.next;
+        }        
+        previus.next = new SinglyLinkedListNode(data);        
+        return head;
 	}
 	
 	/**
@@ -47,4 +47,37 @@ public class LinkedList {
         llist.next = nodeAux;                
         return llist;
     }
+	
+	/**
+	 * 
+	 * @param head
+	 * @param data
+	 * @param position
+	 * @return
+	 */
+	public static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode head, int data, int position) {
+		if(head == null)
+			return new SinglyLinkedListNode(data);
+		
+		int currentPosition = 0;
+		SinglyLinkedListNode previus = null;
+		SinglyLinkedListNode current = head;
+		while(position > currentPosition) {
+			previus = current;
+			current = current.next;
+			currentPosition++;
+		}		
+		insertBetweenPosition(data, previus, current);
+		return head;
+    }
+
+	private static void insertBetweenPosition(int data, SinglyLinkedListNode previus, SinglyLinkedListNode current) {
+		SinglyLinkedListNode node = new SinglyLinkedListNode(data);
+		if(previus != null) {
+			previus.next = node;
+		}
+		node.next = current;
+	}
+	
+	
 }
