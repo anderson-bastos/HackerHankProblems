@@ -2,6 +2,10 @@ package com.hackerhank.problems.datastructures.linkedlist;
 
 public class LinkedList {
 	
+	private LinkedList() {
+		throw new IllegalStateException("Utility class");
+	}
+	
 	public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep){
 		while (node != null) {			
 			System.out.print(node.data);
@@ -79,5 +83,69 @@ public class LinkedList {
 		node.next = current;
 	}
 	
+	static void reversePrint(SinglyLinkedListNode head) {
+		int quantityLinkedLists = head.data;
+		int countQuantityLists = 0;
+		while(countQuantityLists < quantityLinkedLists) {
+			head = head.next;			
+			int countElementsLinkedList = 0;			
+			SinglyLinkedListNode previus = null;
+			SinglyLinkedListNode current = head.next;
+			SinglyLinkedList llist = new SinglyLinkedList();
+			while(countElementsLinkedList < head.data) {
+				llist.insertNode(current.data);
+				previus = current;
+				current = current.next;				
+				countElementsLinkedList++;								
+			}			
+			head = previus;
+			printList(reverse(llist.head));
+			countQuantityLists++;
+		}
+    }
 	
+	static SinglyLinkedListNode reverse(SinglyLinkedListNode node) { 
+		SinglyLinkedListNode prev = null; 
+		SinglyLinkedListNode current = node; 
+		SinglyLinkedListNode next = null; 
+        while (current != null) { 
+            next = current.next; 
+            current.next = prev; 
+            prev = current; 
+            current = next; 
+        } 
+        node = prev; 
+        return node; 
+    } 
+	
+	// prints content of double linked list 
+    static void printList(SinglyLinkedListNode node) { 
+        while (node != null) { 
+            System.out.println(node.data); 
+            node = node.next; 
+        } 
+    } 
+    
+    public static void main(String[] args) {
+		SinglyLinkedList linkedList = new SinglyLinkedList();
+		linkedList.insertNode(3);
+		linkedList.insertNode(5);
+		linkedList.insertNode(16);
+		linkedList.insertNode(12);
+		linkedList.insertNode(4);
+		linkedList.insertNode(2);
+		linkedList.insertNode(5);
+		linkedList.insertNode(3);
+		linkedList.insertNode(7);
+		linkedList.insertNode(3);
+		linkedList.insertNode(9);
+		linkedList.insertNode(5);
+		linkedList.insertNode(5);
+		linkedList.insertNode(1);
+		linkedList.insertNode(18);
+		linkedList.insertNode(3);
+		linkedList.insertNode(13);
+		
+		reversePrint(linkedList.head);
+	}
 }
