@@ -86,7 +86,7 @@ public class LinkedList {
 	static void reversePrint(SinglyLinkedListNode head) {
 		int quantityLinkedLists = head.data;
 		int countQuantityLists = 0;
-		while(countQuantityLists < quantityLinkedLists) {
+		while(countQuantityLists < quantityLinkedLists && head.next != null) {
 			head = head.next;			
 			int countElementsLinkedList = 0;			
 			SinglyLinkedListNode previus = null;
