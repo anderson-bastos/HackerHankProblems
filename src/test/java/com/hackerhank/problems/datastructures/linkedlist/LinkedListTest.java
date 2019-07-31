@@ -1,4 +1,4 @@
-package com.hackerhank.problems.implementations.datastructures.linkedlist;
+package com.hackerhank.problems.datastructures.linkedlist;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

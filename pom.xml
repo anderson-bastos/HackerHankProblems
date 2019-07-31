@@ -5,7 +5,7 @@
 	<groupId>com.hackerhank</groupId>
 	<artifactId>HackerHankProblems</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<name>HackerHankProblems</name>
 	<url>http://maven.apache.org</url>
 
@@ -23,7 +23,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.1.0</version>
+			<version>5.4.0-M1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.4.0-M1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
